@@ -1,0 +1,661 @@
+/* 
+    網頁設計:個人網站
+    作者:蔡宇倫
+    v1.00 2022.12.03 
+*/
+html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(45deg, pink, lightblue);
+    width: 100%;
+    height: 100%;
+}
+
+#tit {
+    position: absolute;
+    top: 20%;
+    left: 35%;
+    transform: translate(-35%, -20%);
+    text-align: center;
+    font-size: 40px;
+    color: blue;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+#tit2,
+#tit3,
+#tit4 {
+    position: absolute;
+    top: 1%;
+    left: 35%;
+    transform: translate(-35%, -1%);
+    text-align: center;
+    font-size: 80px;
+    color: lightgreen;
+    font-weight: 600;
+    margin-top: 20px;
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+}
+
+
+#tit5 {
+    position: absolute;
+    top: 0.5%;
+    left: 35%;
+    transform: translate(-35%, -0.5%);
+    text-align: center;
+    font-size: 45px;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 20px;
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+}
+
+.word {
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    transform: translate(-35%, -70%);
+    color: #eee;
+    font: 700 normal 2.5em 'tahoma';
+    text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+}
+
+#name {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    transform: translate(-25%, -40%);
+    font-size: 60px;
+    font-weight: 600;
+    animation: textclip 2s linear infinite;
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(-225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%);
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+#name2,
+#name3,
+#name4 {
+    position: absolute;
+
+    top: 40%;
+    left: 15%;
+    transform: translate(-15%, -40%);
+    font-size: 40px;
+    font-weight: 600;
+    color: black;
+}
+
+#name3 {
+    cursor: pointer;
+}
+
+#name3:hover {
+    color: orange;
+    transition: 0.5s;
+}
+
+/*======================================================================*/
+#name5 {
+    display: flex;
+    top: 35%;
+    left: 8%;
+    position: relative;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+#js{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 0%);
+    background: #2a2a2a;
+    width: 220px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#name5 .card {
+    background: #2a2a2a;
+    width: 220px;
+    height: 250px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#name5 .card .percent {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+#name5 .card .percent svg {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transform: rotate(-90deg);
+}
+
+#name5 .card .percent svg circle {
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 2;
+    stroke: #191919;
+    transform: translate(5px, 5px);
+    animation: b 3s infinite;
+}
+
+@keyframes b {
+    0% {
+        stroke-dasharray: 440;
+        stroke-dashoffset: 440;
+    }
+}
+
+#name5 .card .percent svg circle:nth-child(2) {
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: calc(440 - (440 * var(--num)) / 100);
+}
+
+.dot {
+    position: absolute;
+    inset: 5px;
+    z-index: 10;
+    transform: rotate(calc(3.6deg * var(--num)));
+    animation: a 3s infinite;
+}
+
+.number {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.number h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+.number h2 span {
+    font-size: 0.5em;
+}
+
+.number h2 span p {
+    font-size: 0.75em;
+}
+
+@keyframes a {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(calc(3.6deg * var(--num)));
+    }
+}
+
+.dot::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    transform: translateX(-50%);
+    height: 10px;
+    top: -5px;
+    left: 50%;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--clr), 0 0 30px var(--clr);
+}
+
+/*===============================================================================*/
+
+#container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+}
+
+#sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: #333;
+    color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+#content {
+    background: rgba(238, 238, 238, 0.409);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+#content2 {
+    background: rgba(238, 238, 238, 0.409);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+#content3 {
+    background: rgba(238, 238, 238, 0.409);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+#content4 {
+    background: rgba(238, 238, 238, 0.409);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+#content5 {
+    background: rgba(238, 238, 238, 0.409);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    opacity: 0;
+    left: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+
+#option {
+    overflow-x: hidden;
+    height: 95%;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+
+#option div {
+    margin-top: 15%;
+    border-bottom: 1px solid gray;
+    border-radius: 10px;
+}
+
+#option div:hover {
+    background: #eee;
+    color: #333;
+    transition: 1s;
+}
+
+/*========================響應式網站螢幕伸縮========================*/
+@media screen and (max-width: 1200px) {
+    body {
+        width: 1200px;
+        height: 100%;
+    }
+    #name5 {
+        display: flex;
+        top: 35%;
+        left: 1%;
+        position: relative;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    #tit5 {
+        position: absolute;
+        top: 0.5%;
+        left: 30%;
+        transform: translate(-30%, -0.5%);
+        text-align: center;
+        font-size: 45px;
+    }
+
+    #container {
+        width: 1000px;
+        height: 100%;
+    }
+
+    #tit {
+        position: absolute;
+        top: 20%;
+        left: 30%;
+        transform: translate(-30%, -20%);
+    }
+
+    #tit2 {
+        position: absolute;
+        top: 1%;
+        left: 30%;
+        transform: translate(-30%, -1%);
+
+    }
+
+    #sidebar {
+        width: 300px;
+        height: 100%;
+    }
+
+    #name {
+        position: absolute;
+        top: 40%;
+        left: 20%;
+        transform: translate(-20%, -40%);
+        font-size: 50px;
+    }
+
+    #name2 {
+        font-size: 30px;
+    }
+
+    .word {
+        position: absolute;
+        top: 70%;
+        left: 30%;
+        transform: translate(-30%, -70%);
+    }
+}
+
+/*=====================================================*/
+@media screen and (max-width: 1000px) {
+    body {
+        width: 900px;
+        height: 100%;
+    }
+    #name5 {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        top: 15%;
+        left: -18%;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+    #js{
+        position: absolute !important;
+        top: 50% !important; 
+        left: 20% !important;
+        transform: translate(0%, 60%) !important;
+        width: 220px;
+        height: 250px;
+       
+    }
+ 
+    #tit5 {
+        position: absolute;
+        top: 0.5%;
+        left: 25%;
+        transform: translate(-25%, -0.5%);
+        text-align: center;
+        font-size: 45px;
+    }
+
+    #container {
+        width: 800px;
+        height: 100%;
+    }
+
+    #sidebar {
+        width: 300px;
+        height: 100%;
+    }
+
+    #tit {
+        position: absolute;
+        top: 20%;
+        left: 25%;
+        transform: translate(-25%, -20%);
+    }
+
+    #name4 {
+        left: 10%;
+        font-size: 25px;
+    }
+
+    #name {
+        position: absolute;
+        top: 40%;
+        left: 12%;
+        transform: translate(-12%, -40%);
+        font-size: 40px;
+    }
+
+    #tit2,
+    #tit3,
+    #tit4 {
+        position: absolute;
+        top: 1%;
+        left: 20%;
+        transform: translate(-20%, -1%);
+    }
+
+    #name2 {
+        left: 10%;
+        font-size: 25px;
+    }
+
+
+    .word {
+        position: absolute;
+        top: 70%;
+        left: 25%;
+        transform: translate(-25%, -70%);
+        color: white;
+        font: 700 normal 2em 'tahoma';
+        text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+    }
+}
+
+/*=======================常用最小寬度時==============================*/
+@media screen and (max-width: 800px) {
+    body {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+    }
+
+    #name5 {
+        display: flex !important;
+        top: 20% !important;
+        left: 1% !important;
+        position: relative !important;
+        gap: 10px !important;
+        flex-wrap: wrap !important;
+    }
+
+    #tit5 {
+        position: absolute;
+        top: 0.5%;
+        left: 50%;
+        transform: translate(-50%, -0.5%);
+        text-align: center;
+        font-size: 45px;
+    }
+
+    #container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+
+    #tit {
+        position: absolute;
+        top: 20%;
+        left: 48%;
+        transform: translate(-48%, -20%);
+    }
+
+    #tit2,
+    #tit3,
+    #tit4 {
+        position: absolute;
+        top: 1%;
+        left: 40%;
+        transform: translate(-40%, -1%);
+    }
+
+    #name2 {
+        width: 100%;
+        margin-left: 5%;
+        left: 70%;
+        transform: translateX(-70%);
+        font-size: 30px;
+    }
+
+    #name4 {
+        left: 50%;
+        transform: translateX(-50%);
+
+        font-size: 40px;
+    }
+
+    #sidebar {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 80px;
+    }
+
+    #option {
+        margin-top: -1%;
+        width: 95%;
+        height: 100%;
+        font-size: 30px;
+        display: inline-flex;
+        overflow: hidden;
+    }
+
+    #option div {
+        margin-top: -1%;
+        margin-left: 8%;
+        border-bottom: 0;
+        border-radius: 0;
+        border-right: 1px solid #fff;
+        padding-right: 10px;
+
+    }
+
+    #option div:hover {
+        background: none;
+        color: yellow;
+        border-bottom: 1px solid yellow;
+        transition: 1s;
+    }
+
+    #name {
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        transform: translate(-30%, -40%);
+        font-size: 60px;
+    }
+
+    #content,
+    #content2,
+    #content3,
+    #content4,
+    #content5 {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        height: 110vh;
+    }
+
+    .word {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -70%);
+        font: 700 normal 2em 'tahoma';
+        text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+    }
+}
+
+/*=======================極限最小寬度時==============================*/
+@media screen and (max-width: 630px) {
+    #option {
+        margin-left: -2%;
+    }
+
+    #option div {
+        margin-left: 4%;
+    }
+
+    #name {
+        position: absolute;
+        top: 40%;
+        left: 30%;
+        transform: translate(-30%, -40%);
+
+        font-size: 45px;
+    }
+
+    .word {
+        position: absolute;
+        top: 70%;
+        left: 45%;
+        transform: translate(-45%, -70%);
+        color: white;
+        font: 700 normal 2em 'tahoma';
+        text-shadow: 5px 2px #222324, 2px 4px #222324, 3px 5px #222324;
+    }
+}
